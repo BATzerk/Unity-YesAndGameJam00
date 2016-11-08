@@ -3,17 +3,17 @@ using System.Collections;
 
 public class EffectsController : MonoBehaviour {
 	// References
-	[SerializeField] private ParticleSystem particles_test;
+	[SerializeField] private ParticleSystem particles_collectSausage;
 
 
 
 	// ----------------------------------------------------------------
 	//  Events
 	// ----------------------------------------------------------------
-//	public void OnCollectFlower (Vector3 pos) {
-//		particles_collectFlower.transform.localPosition = pos;
-//		particles_collectFlower.Emit (20);
-//	}
+	public void OnCollectSausage (Vector3 pos) {
+		particles_collectSausage.transform.localPosition = pos;
+		particles_collectSausage.Emit (100);
+	}
 
 
 }

@@ -12,21 +12,21 @@ public class ScoreUI : MonoBehaviour {
 	// ----------------------------------------------------------------
 	private void Start () {
 		// Add event listeners!
-//		GameManagers.Instance.EventManager.NumNuggetsCollectedChangedEvent += OnNumNuggetsCollectedChanged;
+		GameManagers.Instance.EventManager.ScoreChangedEvent += OnScoreChanged;
 	}
 	private void OnDestroy () {
 		// Remove event listeners!
-//		GameManagers.Instance.EventManager.NumNuggetsCollectedChangedEvent -= OnNumNuggetsCollectedChanged;
+		GameManagers.Instance.EventManager.ScoreChangedEvent -= OnScoreChanged;
 	}
 
 
 	// ----------------------------------------------------------------
 	//  Events
 	// ----------------------------------------------------------------
-//	private void OnNumNuggetsCollectedChanged (int numNuggetsCollected) {
-//		// Update scoreText!
-//		scoreText.text = numNuggetsCollected.ToString ();
-//	}
+	private void OnScoreChanged (int score) {
+		// Update scoreText!
+		scoreText.text = score.ToString ();
+	}
 
 
 }

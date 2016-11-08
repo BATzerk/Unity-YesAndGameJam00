@@ -4,20 +4,20 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 	// Properties
 	private GameState gameState;
-//	private int numNuggetsCollected;
+	private int score;
 	// References
 	[SerializeField] private LevelTimer levelTimer;
 	[SerializeField] private Player player;
 
 	// Getters / Setters
 	public GameState GameState { get { return gameState; } }
-//	public int NumNuggetsCollected {
-//		get { return numNuggetsCollected; }
-//		set {
-//			numNuggetsCollected = value;
-//			GameManagers.Instance.EventManager.OnNumNuggetsCollectedChanged (numNuggetsCollected);
-//		}
-//	}
+	public int Score {
+		get { return score; }
+		set {
+			score = value;
+			GameManagers.Instance.EventManager.OnScoreChanged (score);
+		}
+	}
 
 
 
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour {
 
 		// Reset things!
 		gameState = GameState.Playing;
-//		NumNuggetsCollected = 0;
+		Score = 0;
 		levelTimer.ResetTimer ();
 	}
 

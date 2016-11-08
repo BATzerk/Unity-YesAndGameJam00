@@ -10,6 +10,10 @@ public class SausageSpawner : MonoBehaviour {
 	private float timeUntilSpawnSausage;
 
 
+	private void Awake () {
+		timeUntilSpawnSausage = Random.Range (0, SPAWN_INTERVAL);
+	}
+
 
 	// ----------------------------------------------------------------
 	//  Doers
@@ -19,6 +23,9 @@ public class SausageSpawner : MonoBehaviour {
 		sausageGO.transform.SetParent (this.transform.parent);
 		sausageGO.transform.localPosition = this.transform.localPosition;
 		sausageGO.transform.localEulerAngles = new Vector3 (Random.Range (-90, 90), Random.Range (-90, 90), Random.Range (-90, 90));
+		float angleY = this.transform.localEulerAngles.y * Mathf.Deg2Rad;
+		Vector3 force = new Vector3 (Mathf.Sin (angleY), 0.25f, Mathf.Cos (angleY) * 100);
+		sausageGO.GetComponentInChildren<Rigidbody> ().AddForce (force);
 		timeUntilSpawnSausage = SPAWN_INTERVAL;
 	}
 
